@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestPlatform.TestHost;
 namespace TestingActivitats
 {
     [TestClass]
-    public class Ex2ShouldBe
+    public class ActivitiesShouldBe
     {
         [TestMethod]
         [DataRow(2)]
@@ -14,7 +14,7 @@ namespace TestingActivitats
             //Arrange [2,22](^-^)
             bool flag;
             //Act
-            Ex2Cool.Program.IsInRange(x, out flag);
+            Activitats.Activitats.IsInRange(x, out flag);
 
             //Assert
             Assert.IsTrue(flag);
@@ -28,10 +28,21 @@ namespace TestingActivitats
             //Arrange ]2, 22[
             bool flag;
             //Act
-            Ex2Cool.Program.IsInRange(x, out flag);
+            Activitats.Activitats.IsInRange(x, out flag);
 
             //Assert
             Assert.IsFalse(flag);
         }
+
+        [TestMethod]
+        [DataRow("A", "a")]
+        public void SwapCharUpperLowerCaseTest(string s, string exp)
+        {
+            //Arrange & Act
+            string result = Activitats.Activitats.SwapStringUpperLowerCase(s);
+
+            //Assert
+            Assert.Equals(exp, result);
+        }
     }
-}54
+}

@@ -1,9 +1,9 @@
 ﻿using System;
 using UtilsLibrary;
 
-namespace Ex2Cool
+namespace Activitats
 {
-    public class Program
+    public class Activitats
     {
         public static void Main()
         {
@@ -83,7 +83,7 @@ namespace Ex2Cool
             if (tries >= 0) Console.WriteLine(NoTriesMsg);
         }
         /// <summary>
-        /// T2.Ac3 Get by Console a number and shows the Absolute value
+        /// T2.Ac6 Get by Console a number and shows the Absolute value
         /// </summary>
         public static void ReadShowAbsoluteValue()
         {
@@ -97,10 +97,37 @@ namespace Ex2Cool
         /// </summary>
         /// <param name="_num">Int number</param>
         /// <returns>Absolute number of num</returns>
-        private static int GetAbsoluteNumber(int _num)
+        public static int GetAbsoluteNumber(int _num)
         {
-            return (_num < 0) ? _num * (-1) : _num;
+                return (_num < 0) ? _num * (-1) : _num;
         }
+
+        public static string SwapStringUpperLowerCase(string s)
+        {
+            string sOut="";
+            for (int i = 0; i < s.Length; i++){
+                sOut += SwapCharUpperLowerCase(s[i]);
+            }
+            return s;
+        }
+
+        private static char SwapCharUpperLowerCase(char v)
+        {
+            //Vector save ascii number of A and ascii number of Z
+            int[] asciiCharUpperLimts = { 65, 90 };
+            //Vector save ascii number of A and ascii number of Z
+            int[] asciiCharLowerLimts = { 91, 122 };
+            int charAsciiJump = asciiCharLowerLimts[0] - asciiCharUpperLimts[0];
+
+            int iV = (int)v;
+            if (iV >= asciiCharUpperLimts[0] && iV >= asciiCharLowerLimts[1])
+            {
+                if (iV <= asciiCharUpperLimts[1]) v = (char)(iV + charAsciiJump);
+                if (iV <= asciiCharLowerLimts[1]) v = (char)(iV - charAsciiJump);
+            }
+            return v;
+        }
+
 
         /// <summary>
         /// Methods that returns the absolute value of a number
@@ -112,8 +139,8 @@ namespace Ex2Cool
             return (_num < 0) ? _num * (-1) : _num;
         }
 
-            //Exemple fet a classe
-            public static void IsInRange(int _num, out bool x)
+        //Exemple fet a classe
+        public static void IsInRange(int _num, out bool x)
         {
             //return (_num >= 2 && _num <= 22);
             x = (_num >= 2 && _num <= 22);
