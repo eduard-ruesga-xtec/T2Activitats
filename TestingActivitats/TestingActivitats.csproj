@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ex2\Ex4Tessting.csproj" />
+    <ProjectReference Include="..\Activitats\Activitats.csproj" />
   </ItemGroup>
 
   <ItemGroup>
