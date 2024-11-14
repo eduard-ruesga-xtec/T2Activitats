@@ -8,6 +8,10 @@ namespace Activitats
         public static void Main()
         {
             Console.WriteLine(Utils.Pow(2, 0));
+
+            string s = "B";
+            s = SwapStringUpperLowerCase(s);
+            Console.WriteLine(s);
         }
 
 
@@ -102,13 +106,18 @@ namespace Activitats
                 return (_num < 0) ? _num * (-1) : _num;
         }
 
+        /// <summary>
+        /// T2.Ac7 Change Upper to lower and lower to Upper case of every char of a string 
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static string SwapStringUpperLowerCase(string s)
         {
             string sOut="";
             for (int i = 0; i < s.Length; i++){
                 sOut += SwapCharUpperLowerCase(s[i]);
             }
-            return s;
+            return sOut;
         }
 
         private static char SwapCharUpperLowerCase(char v)
@@ -116,15 +125,14 @@ namespace Activitats
             //Vector save ascii number of A and ascii number of Z
             int[] asciiCharUpperLimts = { 65, 90 };
             //Vector save ascii number of A and ascii number of Z
-            int[] asciiCharLowerLimts = { 91, 122 };
-            int charAsciiJump = asciiCharLowerLimts[0] - asciiCharUpperLimts[0];
+            int[] asciiCharLowerLimts = { 97, 122 };
+            int charAsciiJump = 32; // asciiCharLowerLimts[0] - asciiCharUpperLimts[0];
 
             int iV = (int)v;
-            if (iV >= asciiCharUpperLimts[0] && iV >= asciiCharLowerLimts[1])
-            {
-                if (iV <= asciiCharUpperLimts[1]) v = (char)(iV + charAsciiJump);
-                if (iV <= asciiCharLowerLimts[1]) v = (char)(iV - charAsciiJump);
-            }
+
+            if (iV <= asciiCharUpperLimts[1] && iV >= asciiCharUpperLimts[0]) v = (char)(iV + charAsciiJump);
+            else if (iV >= asciiCharLowerLimts[0] && iV <= asciiCharLowerLimts[1]) v = (char)(iV - charAsciiJump);
+
             return v;
         }
 

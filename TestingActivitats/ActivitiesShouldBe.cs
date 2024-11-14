@@ -36,13 +36,40 @@ namespace TestingActivitats
 
         [TestMethod]
         [DataRow("A", "a")]
-        public void SwapCharUpperLowerCaseTest(string s, string exp)
+        [DataRow("HOLA", "hola")]
+        public void SwapStringUpper2LowerCase(string s, string exp)
         {
             //Arrange & Act
             string result = Activitats.Activitats.SwapStringUpperLowerCase(s);
 
             //Assert
-            Assert.Equals(exp, result);
+            Assert.AreEqual(exp, result);
+        }
+
+
+        [TestMethod]
+        [DataRow("a", "A")]
+        [DataRow("hola", "HOLA")]
+        public void SwapStringLower2UpperCase(string s, string exp)
+        {
+            //Arrange & Act
+            string result = Activitats.Activitats.SwapStringUpperLowerCase(s);
+
+            //Assert
+            Assert.AreEqual(exp, result);
+        }
+
+
+        [TestMethod]
+        [DataRow("aB", "Ab")]
+        [DataRow("Hola", "hOLA")]
+        public void SwapStringMixCases(string s, string exp)
+        {
+            //Arrange & Act
+            string result = Activitats.Activitats.SwapStringUpperLowerCase(s);
+
+            //Assert
+            Assert.AreEqual(exp, result);
         }
     }
 }
